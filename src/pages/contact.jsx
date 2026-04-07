@@ -107,20 +107,20 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold text-gray-800">Our Address</p>
                       <p className="text-gray-600 mt-1">
-                        12 Adeola Odeku Street,<br />
-                        Victoria Island, Lagos, Nigeria
+                       148/150 Bode Thomas St, Surulere,<br />
+                       Lagos, Nigeria
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                      📞
+                      
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">Phone</p>
-                      <p className="text-gray-600 mt-1">+234 803 456 7890</p>
-                      <p className="text-gray-600">+234 909 123 4567</p>
+                      <p className="text-gray-600 mt-1">+234 913 464 9416</p>
+                      <p className="text-gray-600">+234 919 123 4567</p>
                     </div>
                   </div>
 
