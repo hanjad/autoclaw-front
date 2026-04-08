@@ -3,6 +3,8 @@
     {
       "id": 1,
       "name": "Mobil 1 Extended Performance Full Synthetic 5W-30 Engine Oil",
+      "brand": "Mobil 1",
+      "category": "Lubricants",
       "product_image": "engine_oil",
       "initial_price": 15000,
       "selling_price": 12000,
@@ -13,6 +15,8 @@
     {
       "id": 2,
       "name": "Bosch Premium FILTECH Air Filter",
+      "brand": "Bosch",
+      "category": "Filters",
       "product_image": "air_filter",
       "initial_price": 8000,
       "selling_price": 6500,
@@ -23,6 +27,8 @@
     {
       "id": 3,
       "name": "Brembo Premium Ceramic Brake Pads Set",
+      "brand": "Brembo",
+      "category": "Braking System",
       "product_image": "brake_pads",
       "initial_price": 25000,
       "selling_price": 20000,
@@ -33,6 +39,8 @@
     {
       "id": 4,
       "name": "Michelin Pilot Sport 4 205/55R16 Tire",
+      "brand": "Michelin",
+      "category": "Tires",
       "product_image": "tires",
       "initial_price": 120000,
       "selling_price": 95000,
@@ -43,6 +51,8 @@
     {
       "id": 5,
       "name": "VARTA Silver Dynamic E39 12V 100Ah Car Battery",
+      "brand": "VARTA",
+      "category": "Electrical",
       "product_image": "car_battery",
       "initial_price": 45000,
       "selling_price": 38000,
@@ -53,6 +63,8 @@
     {
       "id": 6,
       "name": "NGK Iridium IX Spark Plugs Set",
+      "brand": "NGK",
+      "category": "Ignition",
       "product_image": "spark_plugs",
       "initial_price": 12000,
       "selling_price": 9500,
@@ -63,6 +75,8 @@
     {
       "id": 7,
       "name": "Castrol Transmax Manual 75W-90 Transmission Fluid",
+      "brand": "Castrol",
+      "category": "Lubricants",
       "product_image": "transmission_fluid",
       "initial_price": 18000,
       "selling_price": 14500,
@@ -73,6 +87,8 @@
     {
       "id": 8,
       "name": "Prestone AF210 Radiator Antifreeze/Coolant",
+      "brand": "Prestone",
+      "category": "Cooling System",
       "product_image": "radiator_coolant",
       "initial_price": 10000,
       "selling_price": 8000,
@@ -83,6 +99,8 @@
     {
       "id": 9,
       "name": "Valeo 12V High Output Alternator",
+      "brand": "Valeo",
+      "category": "Electrical",
       "product_image": "alternator",
       "initial_price": 75000,
       "selling_price": 62000,
@@ -93,6 +111,8 @@
     {
       "id": 10,
       "name": "Bosch 044 Electric Fuel Pump",
+      "brand": "Bosch",
+      "category": "Fuel System",
       "product_image": "fuel_pump",
       "initial_price": 35000,
       "selling_price": 28000,
@@ -103,6 +123,8 @@
     {
       "id": 11,
       "name": "MagnaFlow 18299 Stainless Steel Performance Muffler",
+      "brand": "MagnaFlow",
+      "category": "Exhaust",
       "product_image": "exhaust_muffler",
       "initial_price": 55000,
       "selling_price": 45000,
@@ -113,6 +135,8 @@
     {
       "id": 12,
       "name": "Monroe Reflex Shock Absorbers Set",
+      "brand": "Monroe",
+      "category": "Suspension",
       "product_image": "shock_absorbers",
       "initial_price": 80000,
       "selling_price": 65000,
