@@ -1,8 +1,7 @@
 import ProductCard from "../components/ProductCard";
 import productsData from "../assets/products.json";
 import Header from "../components/Header";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Products = ({ quantity }) => {
   if (!quantity) quantity = productsData.products.length;
@@ -12,7 +11,10 @@ const Products = ({ quantity }) => {
     <>
       {useLocation().pathname === "/products" && <Header />}
 
-      <section className="space-y-8 mt-5 flex flex-col items-center">
+      <section
+        id="products"
+        className="space-y-8 flex flex-col items-center pt-30"
+      >
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Products
@@ -51,7 +53,7 @@ const Products = ({ quantity }) => {
         </div>
 
         <Link
-          to="/products"  
+          to="/products"
           className="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded m-3 mt-6"
         >
           View more 👉

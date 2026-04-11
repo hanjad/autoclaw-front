@@ -26,7 +26,7 @@ const Category = () => {
       <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-5 ">
         {categories.map((category) => (
           <CategoryCard
-            className="skill-item text-center p-4 rounded-lg bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white cursor-pointer hover:transform hover:scale-105 transition duration-100"
+            className="skill-item text-center p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white cursor-pointer transition duration-200 hover:scale-105 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-200 dark:hover:border-indigo-400 dark:hover:ring-indigo-500"
             key={category.id}
             name={category.name}
           />
