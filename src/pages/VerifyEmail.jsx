@@ -1,7 +1,34 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function Login() {
+export default function VerifyEmail() {
+    const API_BASE_URL = import.meta.env.REACT_APP_API_URL || "http://autoclaw-back.test";
+    const [SearchParams] = useSearchParams();
+    const email = SearchParams.get("email"); 
+    const [token, setToken] = useState(SearchParams.get("token"));
+    const navigate = useNavigate();
+    console.log(email, token);
+    useEffect(() => {
+        if(email === null) {
+            navigate("/register");
+        }
+    }, [email, navigate]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post(`${API_BASE_URL}/api/verify`, {
+                email,
+                token
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error(error?.response);
+        }
+    };
+
   return (
     <>
       <Header />
@@ -13,55 +40,31 @@ export default function Login() {
             className="mx-auto h-10 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 dark:text-white">
-            Sign in to your account
+            Verify your account
           </h2>
+          <p className="mt-10 text-center text-sm/6 text-gray-600 dark:text-gray-400">
+            Please enter the verification token sent to your email. {email}
+          </p>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form action="#" method="POST" className="space-y-6">
             <div>
               <label
-                htmlFor="email"
+                htmlFor="token"
                 className="block text-sm/6 font-medium text-gray-900 dark:text-white"
               >
-                Email address
+                Verification Token
               </label>
               <div className="mt-2">
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
+                  id="token"
+                  name="token"
+                  type="text"
                   required
-                  autoComplete="email"
-                  className="block w-full rounded-md bg-white dark:bg-gray-800 px-3 py-1.5 text-base text-gray-900 dark:text-white outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm/6 font-medium text-gray-900 dark:text-white"
-                >
-                  Password
-                </label>
-                <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-semibold text-indigo-600 hover:text-indigo-500"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
+                  autoComplete="token"
+                  value={token}
+                  onChange={(e) => setToken(e.target.value)}
                   className="block w-full rounded-md bg-white dark:bg-gray-800 px-3 py-1.5 text-base text-gray-900 dark:text-white outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
@@ -70,6 +73,7 @@ export default function Login() {
             <div>
               <button
                 type="submit"
+                onClick={handleSubmit}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in

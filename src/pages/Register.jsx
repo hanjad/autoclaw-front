@@ -2,10 +2,12 @@ import { useState } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 export default function Register() {
-  const API_BASE_URL =
-    import.meta.env.REACT_APP_API_URL || "http://autoclaw-back.test";
+  const API_BASE_URL = import.meta.env.REACT_APP_API_URL || "http://autoclaw-back.test";
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   // State to hold form data
   const [formData, setFormData] = useState({
     firstname: "",
@@ -13,7 +15,7 @@ export default function Register() {
     email: "",
     phone: "",
     password: "",
-    confirmPassword: "",
+    password_confirmation: "",
     role: "user",
   });
   const [errors, setErrors] = useState({});
@@ -171,17 +173,20 @@ export default function Register() {
                   Password
                 </label>
               </div>
-              <div className="mt-2">
+              <div className="mt-2 relative">
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   //   required
                   autoComplete="current-password"
                   value={formData.password}
                   onChange={handleChange}
                   className={`block w-full rounded-md bg-white dark:bg-gray-800 px-3 py-1.5 text-base text-gray-900 dark:text-white outline-1 -outline-offset-1 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 ${errors.password ? "outline-red-500 dark:outline-red-400" : "outline-gray-300 dark:outline-gray-600"}`}
                 />
+                <span onClick={()=> setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400">
+                  {showPassword ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
+                </span>
               </div>
               <span className="text-red-500 dark:text-red-400 italic">
                 {errors.password}
@@ -198,16 +203,20 @@ export default function Register() {
                   Confirm Password
                 </label>
               </div>
-              <div className="mt-2">
+              <div className="mt-2 relative">
                 <input
                   id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
+                  name="password_confirmation"
+                  type={showConfirmPassword ? "text" : "password"}
                   //   required
                   autoComplete="confirmPassword"
-                  value={formData.confirmPassword}
+                  value={formData.password_confirmation}
+                  onChange={handleChange}
                   className={`block w-full rounded-md bg-white dark:bg-gray-800 px-3 py-1.5 text-base text-gray-900 dark:text-white outline-1 -outline-offset-1 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 ${errors.password ? "outline-red-500 dark:outline-red-400" : "outline-gray-300 dark:outline-gray-600"}`}
                 />
+                <span onClick={()=> setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400">
+                  {showConfirmPassword ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
+                </span>
               </div>
               <span className="text-red-500 dark:text-red-400 italic">
                 {errors.password}
