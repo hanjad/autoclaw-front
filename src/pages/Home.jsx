@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Category from "../sections/Category";
-import Products from "./Products";
+import Products from "../sections/Products";
 import Hero from "../sections/Hero";
 
 function Home() {
