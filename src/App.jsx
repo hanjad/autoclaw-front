@@ -8,10 +8,18 @@ import VerifyEmail from "./pages/VerifyEmail";
 import ProductDetail from "./pages/ProductDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Admin/Dashboard";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
+      <Toaster 
+        position="top-right"
+        containerStyle={{
+          top: 20,
+          zIndex: 9999, 
+        }} 
+      />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

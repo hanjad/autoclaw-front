@@ -3,11 +3,13 @@ import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const API_BASE_URL = import.meta.env.REACT_APP_API_URL || "http://autoclaw-back.test";
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  let currentStatus = null;
   // State to hold form data
   const [formData, setFormData] = useState({
     firstname: "",
@@ -33,11 +35,15 @@ export default function Register() {
     e.preventDefault();
     try {
       const res = await axios.post(`${API_BASE_URL}/api/register`, formData);
-      console.log(res.data);
+      currentStatus = res.status;
     } catch (errors) {
-      console.log(errors?.response?.data?.message);
-      console.table(errors?.response?.data?.errors);
       setErrors(errors?.response?.data?.errors);
+    } finally {
+      if (currentStatus === 201 || currentStatus === 200) {
+        toast.success("Registration successful! Please check your email for verification.");
+      } else {
+        toast.error("Registration failed. Please check the form for errors.");
+      }
     }
     console.table(errors);
   };
